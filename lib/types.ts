@@ -36,3 +36,52 @@ export type Preset = {
   description: string;
   state: ConfiguratorState;
 };
+
+// ─── More Spaces ─────────────────────────────────────────
+
+export type ExtraSpaceId = 'coffee' | 'outdoor' | 'relax' | 'garage';
+
+export type SpaceCatalogItem = {
+  id: string;
+  spaceId: ExtraSpaceId;
+  name: string;
+  price: number;
+  description: string;
+  thumbnail: string;
+  sceneAsset: string;
+};
+
+export type SpaceItem = {
+  id: string;
+  catalogId?: string;
+  name: string;
+  price: number;
+  isCustom: boolean;
+};
+
+export type SpacesState = Record<ExtraSpaceId, SpaceItem[]>;
+
+export type SpacesAction =
+  | { type: 'ADD_CATALOG_ITEM'; spaceId: ExtraSpaceId; catalogId: string }
+  | {
+      type: 'ADD_CUSTOM_ITEM';
+      spaceId: ExtraSpaceId;
+      name: string;
+      price: number;
+    }
+  | {
+      type: 'UPDATE_SPACE_ITEM';
+      spaceId: ExtraSpaceId;
+      itemId: string;
+      name: string;
+      price: number;
+    }
+  | { type: 'REMOVE_SPACE_ITEM'; spaceId: ExtraSpaceId; itemId: string };
+
+export type ToastType = 'success' | 'error';
+
+export type Toast = {
+  id: string;
+  message: string;
+  type: ToastType;
+};

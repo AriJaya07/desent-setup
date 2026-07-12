@@ -8,7 +8,8 @@ import SuccessState from './SuccessState';
 import Image from 'next/image';
 
 export default function CheckoutPanel() {
-  const { checkoutView, setCheckoutView, selectedItems, total } = useConfigurator();
+  const { checkoutView, setCheckoutView, selectedItems, selectedSpaceItems, total } =
+    useConfigurator();
 
   if (checkoutView === 'closed') return null;
 
@@ -144,6 +145,74 @@ export default function CheckoutPanel() {
                     </div>
                   </div>
                 ))}
+
+                {selectedSpaceItems.length > 0 && (
+                  <>
+                    <div
+                      style={{
+                        fontSize: '0.7rem',
+                        fontWeight: 600,
+                        color: 'var(--color-text-muted)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.06em',
+                        marginTop: 'var(--space-2)',
+                      }}
+                    >
+                      More Spaces
+                    </div>
+                    {selectedSpaceItems.map(({ item, spaceName, thumbnail, description }) => (
+                      <div
+                        key={item.id}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          padding: 'var(--space-3) var(--space-4)',
+                          background: 'var(--color-slate-50)',
+                          borderRadius: 'var(--radius-md)',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
+                          <div
+                            style={{
+                              position: 'relative',
+                              width: 40,
+                              height: 36,
+                              flexShrink: 0,
+                            }}
+                          >
+                            <Image
+                              src={thumbnail}
+                              alt={item.name}
+                              fill
+                              style={{ objectFit: 'contain' }}
+                              sizes="40px"
+                            />
+                          </div>
+                          <div>
+                            <div style={{ fontSize: '0.85rem', fontWeight: 600 }}>
+                              {item.name}
+                            </div>
+                            <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
+                              {spaceName} · {description}
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            fontSize: '0.85rem',
+                            fontWeight: 600,
+                            color: 'var(--color-text)',
+                            whiteSpace: 'nowrap',
+                            marginLeft: 'var(--space-3)',
+                          }}
+                        >
+                          {formatPrice(item.price)}
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                )}
               </div>
 
               {/* Divider */}

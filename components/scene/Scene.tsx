@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useConfigurator } from '@/lib/context/ConfiguratorContext';
 import { getProductById } from '@/lib/data/products';
 import Image from 'next/image';
+import SpaceScene from './SpaceScene';
 
 const itemTransition = {
   type: 'spring' as const,
@@ -12,8 +13,6 @@ const itemTransition = {
   mass: 0.8,
 };
 
-// We MUST include x: '-50%' here because Framer Motion will otherwise overwrite 
-// the transform: translateX(-50%) defined in the .scene-layer CSS class.
 const fadeScale = {
   initial: { opacity: 0, scale: 0.92, y: 8, x: '-50%' },
   animate: { opacity: 1, scale: 1, y: 0, x: '-50%' },
@@ -21,36 +20,10 @@ const fadeScale = {
 };
 
 export default function Scene() {
-  const { state, activeSpace, setActiveSpace } = useConfigurator();
+  const { state, activeSpace } = useConfigurator();
 
   if (activeSpace !== 'workspace') {
-    const spaceNames = {
-      coffee: 'Coffee Station',
-      outdoor: 'Outdoor Gear',
-      relax: 'Relax Zone',
-      garage: 'Garage Space'
-    };
-
-    return (
-      <div className="scene-container" id="scene-container">
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 30 }}>
-          <div style={{ textAlign: 'center', color: 'var(--color-text-muted)' }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '8px' }}>🚧</div>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--color-text)', margin: '0 0 var(--space-2)' }}>
-              {spaceNames[activeSpace as keyof typeof spaceNames]}
-            </h2>
-            <p style={{ marginBottom: 'var(--space-4)' }}>This space is coming soon.</p>
-            <button
-              onClick={() => setActiveSpace('workspace')}
-              className="btn-primary"
-              style={{ fontSize: '0.85rem', padding: 'var(--space-2) var(--space-4)' }}
-            >
-              Back to Workspace
-            </button>
-          </div>
-        </div>
-      </div>
-    );
+    return <SpaceScene spaceId={activeSpace} />;
   }
 
   const desk = getProductById(state.deskId);

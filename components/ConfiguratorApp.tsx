@@ -11,7 +11,7 @@ import { useConfigurator } from '@/lib/context/ConfiguratorContext';
 import { formatPrice } from '@/lib/data/products';
 
 export default function ConfiguratorApp() {
-  const { state, dispatch, total, isMinimumMet, setCheckoutView } = useConfigurator();
+  const { state, total, isMinimumMet, setCheckoutView, dispatch, activeSpace, setActiveSpace } = useConfigurator();
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -111,19 +111,10 @@ export default function ConfiguratorApp() {
 
           {/* Bottom Floating CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20, x: '-50%' }}
-            animate={{ opacity: 1, y: 0, x: '-50%' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            style={{
-              position: 'absolute',
-              bottom: 'var(--space-8)',
-              left: '50%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 'var(--space-3)',
-              zIndex: 30,
-            }}
+            className="cta-pill-container"
           >
             <div
               className="glass-panel"
@@ -167,33 +158,38 @@ export default function ConfiguratorApp() {
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 'var(--space-4)' }}>
               {[
-                { name: 'Coffee Station', icon: <Coffee size={24} />, action: '+ Add Coffee Machine' },
-                { name: 'Outdoor Gear', icon: <Tent size={24} />, action: '+ Add Surfboard' },
-                { name: 'Relax Zone', icon: <Sofa size={24} />, action: '+ Add Bean Bag' },
-                { name: 'Garage Space', icon: <Wrench size={24} />, action: '+ Add Tool Shelf' },
-              ].map((zone) => (
-                <div
-                  key={zone.name}
-                  style={{
-                    border: '1px dashed var(--color-border-hover)',
-                    borderRadius: 'var(--radius-lg)',
-                    padding: 'var(--space-6)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: 'var(--space-4)',
-                    background: 'var(--color-slate-50)',
-                    opacity: 0.7,
-                    cursor: 'not-allowed'
-                  }}
-                >
-                  <div style={{ color: 'var(--color-slate-400)' }}>{zone.icon}</div>
-                  <h4 style={{ margin: 0, fontWeight: 600 }}>{zone.name}</h4>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', background: 'var(--color-slate-200)', padding: '4px 12px', borderRadius: 999 }}>
-                    {zone.action}
-                  </div>
-                </div>
-              ))}
+                { id: 'coffee', name: 'Coffee Station', icon: <Coffee size={24} />, action: '+ Add Coffee Machine' },
+                { id: 'outdoor', name: 'Outdoor Gear', icon: <Tent size={24} />, action: '+ Add Surfboard' },
+                { id: 'relax', name: 'Relax Zone', icon: <Sofa size={24} />, action: '+ Add Bean Bag' },
+                { id: 'garage', name: 'Garage Space', icon: <Wrench size={24} />, action: '+ Add Tool Shelf' },
+              ].map((zone) => {
+                const isActive = activeSpace === zone.id;
+                return (
+                  <button
+                    key={zone.id}
+                    onClick={() => setActiveSpace(zone.id as any)}
+                    style={{
+                      border: isActive ? '1px solid var(--color-accent-light)' : '1px solid var(--color-border)',
+                      borderRadius: 'var(--radius-lg)',
+                      padding: 'var(--space-6)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: 'var(--space-4)',
+                      background: isActive ? 'var(--color-accent-subtle)' : 'var(--color-bg-card)',
+                      cursor: 'pointer',
+                      transition: 'all var(--duration-fast) var(--ease-out)',
+                      boxShadow: isActive ? 'var(--shadow-md)' : 'none',
+                    }}
+                  >
+                    <div style={{ color: isActive ? 'var(--color-accent)' : 'var(--color-text-secondary)' }}>{zone.icon}</div>
+                    <h4 style={{ margin: 0, fontWeight: 600, color: 'var(--color-text)' }}>{zone.name}</h4>
+                    <div style={{ fontSize: '0.8rem', color: isActive ? 'var(--color-accent)' : 'var(--color-text-muted)', background: isActive ? 'rgba(235,94,40,0.1)' : 'var(--color-slate-100)', padding: '4px 12px', borderRadius: 999 }}>
+                      {zone.action}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>

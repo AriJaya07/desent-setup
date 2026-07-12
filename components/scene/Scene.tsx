@@ -21,7 +21,37 @@ const fadeScale = {
 };
 
 export default function Scene() {
-  const { state } = useConfigurator();
+  const { state, activeSpace, setActiveSpace } = useConfigurator();
+
+  if (activeSpace !== 'workspace') {
+    const spaceNames = {
+      coffee: 'Coffee Station',
+      outdoor: 'Outdoor Gear',
+      relax: 'Relax Zone',
+      garage: 'Garage Space'
+    };
+
+    return (
+      <div className="scene-container" id="scene-container">
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 30 }}>
+          <div style={{ textAlign: 'center', color: 'var(--color-text-muted)' }}>
+            <div style={{ fontSize: '2.5rem', marginBottom: '8px' }}>🚧</div>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--color-text)', margin: '0 0 var(--space-2)' }}>
+              {spaceNames[activeSpace as keyof typeof spaceNames]}
+            </h2>
+            <p style={{ marginBottom: 'var(--space-4)' }}>This space is coming soon.</p>
+            <button
+              onClick={() => setActiveSpace('workspace')}
+              className="btn-primary"
+              style={{ fontSize: '0.85rem', padding: 'var(--space-2) var(--space-4)' }}
+            >
+              Back to Workspace
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const desk = getProductById(state.deskId);
   const chair = getProductById(state.chairId);

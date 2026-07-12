@@ -12,6 +12,8 @@ import {
   ConfiguratorAction,
   CheckoutView,
 } from '@/lib/types';
+
+export type SpaceCategory = 'workspace' | 'coffee' | 'outdoor' | 'relax' | 'garage';
 import { defaultState, computeTotal, getSelectedItems } from '@/lib/data/products';
 
 // ─── Reducer ─────────────────────────────────────────────
@@ -50,6 +52,8 @@ type ConfiguratorContextValue = {
   checkoutView: CheckoutView;
   setCheckoutView: (view: CheckoutView) => void;
   isMinimumMet: boolean; // desk + chair both selected
+  activeSpace: SpaceCategory;
+  setActiveSpace: (space: SpaceCategory) => void;
 };
 
 const ConfiguratorContext = createContext<ConfiguratorContextValue | null>(null);
@@ -61,6 +65,10 @@ export function ConfiguratorProvider({ children }: { children: ReactNode }) {
   const [checkoutView, setCheckoutView] = useReducer(
     (_: CheckoutView, next: CheckoutView) => next,
     'closed' as CheckoutView
+  );
+  const [activeSpace, setActiveSpace] = useReducer(
+    (_: SpaceCategory, next: SpaceCategory) => next,
+    'workspace' as SpaceCategory
   );
 
   const total = useMemo(() => computeTotal(state), [state]);
@@ -76,8 +84,10 @@ export function ConfiguratorProvider({ children }: { children: ReactNode }) {
       checkoutView,
       setCheckoutView,
       isMinimumMet,
+      activeSpace,
+      setActiveSpace,
     }),
-    [state, total, selectedItems, checkoutView, isMinimumMet]
+    [state, total, selectedItems, checkoutView, isMinimumMet, activeSpace]
   );
 
   return (

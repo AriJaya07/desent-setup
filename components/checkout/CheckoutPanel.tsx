@@ -102,19 +102,18 @@ export default function CheckoutPanel() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
                       <div
                         style={{
+                          position: 'relative',
                           width: 40,
                           height: 36,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
+                          flexShrink: 0
                         }}
                       >
                         <Image
                           src={product.thumbnail}
                           alt={product.name}
-                          width={40}
-                          height={36}
-                          style={{ width: 'auto', height: 'auto', maxWidth: 40, maxHeight: 36 }}
+                          fill
+                          style={{ objectFit: 'contain' }}
+                          sizes="40px"
                         />
                       </div>
                       <div>

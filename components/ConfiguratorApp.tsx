@@ -111,12 +111,13 @@ export default function ConfiguratorApp() {
 
           {/* Bottom Floating CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20, x: '-50%' }}
+            animate={{ opacity: 1, y: 0, x: '-50%' }}
             transition={{ duration: 0.4, delay: 0.3 }}
             style={{
               position: 'absolute',
               bottom: 'var(--space-8)',
+              left: '50%',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',

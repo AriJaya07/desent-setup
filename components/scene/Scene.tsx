@@ -30,7 +30,7 @@ export default function Scene() {
       <div
         style={{
           position: 'absolute',
-          bottom: '8%',
+          bottom: '10%',
           left: '0%',
           right: '0%',
           height: '1px',
@@ -43,11 +43,11 @@ export default function Scene() {
       <div
         style={{
           position: 'absolute',
-          bottom: '6%',
+          bottom: '8%',
           left: '50%',
           transform: 'translateX(-50%)',
-          width: '60%',
-          height: '12px',
+          width: '70%',
+          height: '16px',
           background: 'radial-gradient(ellipse, rgba(0,0,0,0.06) 0%, transparent 70%)',
           borderRadius: '50%',
         }}
@@ -59,7 +59,7 @@ export default function Scene() {
           <motion.div
             key={chair.id}
             className="scene-layer"
-            style={{ bottom: '8%', zIndex: 5, width: '22%' }}
+            style={{ bottom: '9%', zIndex: 5, width: '25%' }}
             {...fadeScale}
             transition={itemTransition}
           >
@@ -81,7 +81,7 @@ export default function Scene() {
           <motion.div
             key={desk.id}
             className="scene-layer"
-            style={{ bottom: '8%', zIndex: 10, width: '50%' }}
+            style={{ bottom: '10%', zIndex: 10, width: '60%' }}
             {...fadeScale}
             transition={itemTransition}
           >
@@ -104,10 +104,10 @@ export default function Scene() {
             key="monitor-1"
             className="scene-layer"
             style={{
-              bottom: '38%',
+              bottom: '43%',
               zIndex: 15,
-              width: '20%',
-              marginLeft: state.monitorCount === 2 ? '-10%' : '0',
+              width: '22%',
+              marginLeft: state.monitorCount === 2 ? '-11%' : '0',
             }}
             initial={{ opacity: 0, y: 20, scale: 0.85 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -120,6 +120,7 @@ export default function Scene() {
               width={200}
               height={160}
               style={{ width: '100%', height: 'auto' }}
+              priority
             />
           </motion.div>
         )}
@@ -131,10 +132,10 @@ export default function Scene() {
             key="monitor-2"
             className="scene-layer"
             style={{
-              bottom: '38%',
+              bottom: '43%',
               zIndex: 14,
-              width: '20%',
-              marginLeft: '10%',
+              width: '22%',
+              marginLeft: '11%',
             }}
             initial={{ opacity: 0, y: 20, scale: 0.85 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -147,6 +148,7 @@ export default function Scene() {
               width={200}
               height={160}
               style={{ width: '100%', height: 'auto' }}
+              priority
             />
           </motion.div>
         )}
@@ -159,10 +161,10 @@ export default function Scene() {
             key="lamp"
             className="scene-layer"
             style={{
-              bottom: '33%',
+              bottom: '36%',
               zIndex: 16,
-              width: '10%',
-              marginLeft: '22%',
+              width: '12%',
+              marginLeft: '24%',
             }}
             initial={{ opacity: 0, scale: 0.7, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -175,6 +177,7 @@ export default function Scene() {
               width={100}
               height={180}
               style={{ width: '100%', height: 'auto' }}
+              priority
             />
           </motion.div>
         )}
@@ -187,9 +190,9 @@ export default function Scene() {
             key="plant"
             className="scene-layer"
             style={{
-              bottom: '8%',
+              bottom: '10%',
               zIndex: 20,
-              width: '12%',
+              width: '14%',
               marginLeft: '34%',
             }}
             initial={{ opacity: 0, scale: 0.7, y: 15 }}
@@ -203,6 +206,7 @@ export default function Scene() {
               width={120}
               height={180}
               style={{ width: '100%', height: 'auto' }}
+              priority
             />
           </motion.div>
         )}

@@ -43,20 +43,18 @@ export default function OptionCard({
       )}
       <div
         style={{
+          position: 'relative',
           width: '100%',
           height: 64,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           marginBottom: 'var(--space-2)'
         }}
       >
         <Image
           src={thumbnail}
           alt={name}
-          width={64}
-          height={52}
-          style={{ width: 'auto', height: 'auto', maxWidth: 64, maxHeight: 52 }}
+          fill
+          style={{ objectFit: 'contain' }}
+          sizes="64px"
         />
       </div>
       <span

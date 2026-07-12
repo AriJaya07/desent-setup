@@ -107,10 +107,11 @@ body {
   background-image: radial-gradient(var(--color-slate-300) 1px, transparent 1px);
   background-size: 24px 24px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 340px 1fr 180px;
+  gap: var(--space-6);
   padding: var(--space-6);
+  align-items: start;
 }
 
 .scene-container {
@@ -144,24 +145,20 @@ body {
 }
 
 .panel-left {
-  position: absolute;
-  left: var(--space-6);
-  top: var(--space-6);
-  width: 340px;
+  position: relative;
+  width: 100%;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   z-index: 30;
 }
 
 .panel-right-actions {
-  position: absolute;
-  right: var(--space-6);
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   z-index: 30;
+  margin-top: var(--space-16);
 }
 
 /* ─── Option card (Sleek Redesign) ──────────────────────── */
@@ -324,15 +321,24 @@ body {
 }
 
 /* ─── Responsive Grid ──────────────────────────────────── */
-@media (max-width: 1024px) {
-  .panel-left {
-    position: relative;
-    width: 100%;
-    left: 0;
-    top: 0;
-    margin-bottom: var(--space-6);
+@media (max-width: 1100px) {
+  .immersive-stage {
+    grid-template-columns: 340px 1fr;
   }
   .panel-right-actions {
-    display: none; /* Can move to bottom or inline */
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .immersive-stage {
+    grid-template-columns: 1fr;
+  }
+  .panel-left {
+    max-height: none;
+    overflow-y: visible;
   }
 }

@@ -3,7 +3,7 @@
 A playful, visual configurator that lets you build your dream Bali workspace and see it come to life before you rent it.
 
 ## Live Demo
-Check out the live demo [here](#). (To be updated after deployment)
+Check out the live demo [here](https://desent-setup.vercel.app/). (To be updated after deployment)
 
 ## Approach
 Given the 4-8 hour time constraint, I optimized for **disproportionate polish on a small surface area**. Rather than building a sprawling catalog with a complex backend, the focus is entirely on the front-end user experience: making the act of configuring a workspace feel fast, fluid, and delightful. 

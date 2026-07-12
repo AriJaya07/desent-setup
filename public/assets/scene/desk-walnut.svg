@@ -1,0 +1,24 @@
+<svg width="440" height="200" viewBox="0 0 440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Walnut Classic Desk - Rich walnut finish with solid build -->
+  <!-- Desktop surface -->
+  <rect x="40" y="70" width="360" height="20" rx="3" fill="#5c3d2e"/>
+  <rect x="40" y="70" width="360" height="9" rx="3" fill="#6b4a38" opacity="0.8"/>
+  <!-- Wood grain -->
+  <path d="M60 75 Q120 73 180 76 Q240 78 300 74 Q360 72 380 76" stroke="#4a2f22" stroke-width="0.5" opacity="0.3" fill="none"/>
+  <path d="M60 80 Q140 83 220 79 Q300 76 380 82" stroke="#4a2f22" stroke-width="0.5" opacity="0.2" fill="none"/>
+  <!-- Drawer unit (right side) -->
+  <rect x="280" y="90" width="100" height="80" rx="3" fill="#5c3d2e"/>
+  <rect x="284" y="94" width="92" height="35" rx="2" fill="#513526"/>
+  <rect x="284" y="133" width="92" height="35" rx="2" fill="#513526"/>
+  <!-- Drawer handles -->
+  <rect x="320" y="108" width="20" height="3" rx="1.5" fill="#8b7355"/>
+  <rect x="320" y="147" width="20" height="3" rx="1.5" fill="#8b7355"/>
+  <!-- Solid legs -->
+  <rect x="60" y="90" width="14" height="108" rx="2" fill="#5c3d2e"/>
+  <rect x="136" y="90" width="14" height="108" rx="2" fill="#5c3d2e"/>
+  <rect x="366" y="170" width="14" height="28" rx="2" fill="#5c3d2e"/>
+  <!-- Feet -->
+  <rect x="56" y="196" width="22" height="4" rx="2" fill="#4a2f22"/>
+  <rect x="132" y="196" width="22" height="4" rx="2" fill="#4a2f22"/>
+  <rect x="362" y="196" width="22" height="4" rx="2" fill="#4a2f22"/>
+</svg>

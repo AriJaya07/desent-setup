@@ -1,0 +1,50 @@
+<svg width="240" height="280" viewBox="0 0 240 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ergonomic Mesh Chair - Full mesh back with lumbar support -->
+  <!-- Headrest -->
+  <rect x="80" y="10" width="80" height="28" rx="8" fill="#2d2d44"/>
+  <rect x="86" y="14" width="68" height="20" rx="5" fill="#3d3d5c"/>
+  <!-- Headrest mesh pattern -->
+  <line x1="96" y1="16" x2="96" y2="32" stroke="#555573" stroke-width="0.5"/>
+  <line x1="110" y1="16" x2="110" y2="32" stroke="#555573" stroke-width="0.5"/>
+  <line x1="124" y1="16" x2="124" y2="32" stroke="#555573" stroke-width="0.5"/>
+  <line x1="138" y1="16" x2="138" y2="32" stroke="#555573" stroke-width="0.5"/>
+  <!-- Headrest stem -->
+  <rect x="115" y="38" width="10" height="12" rx="3" fill="#555573"/>
+  <!-- Backrest -->
+  <path d="M70 50 Q120 44 170 50 L175 150 Q120 156 65 150 Z" fill="#2d2d44"/>
+  <path d="M76 56 Q120 50 164 56 L168 144 Q120 150 72 144 Z" fill="#3d3d5c"/>
+  <!-- Mesh lines -->
+  <line x1="90" y1="60" x2="88" y2="142" stroke="#4a4a66" stroke-width="0.7"/>
+  <line x1="108" y1="56" x2="106" y2="146" stroke="#4a4a66" stroke-width="0.7"/>
+  <line x1="126" y1="54" x2="126" y2="148" stroke="#4a4a66" stroke-width="0.7"/>
+  <line x1="144" y1="56" x2="146" y2="146" stroke="#4a4a66" stroke-width="0.7"/>
+  <!-- Horizontal mesh -->
+  <line x1="76" y1="80" x2="164" y2="76" stroke="#4a4a66" stroke-width="0.5"/>
+  <line x1="74" y1="100" x2="166" y2="98" stroke="#4a4a66" stroke-width="0.5"/>
+  <line x1="72" y1="120" x2="168" y2="118" stroke="#4a4a66" stroke-width="0.5"/>
+  <!-- Lumbar support -->
+  <ellipse cx="120" cy="128" rx="42" ry="8" fill="#c4704b" opacity="0.25"/>
+  <!-- Seat -->
+  <path d="M55 152 Q120 146 185 152 L190 172 Q120 178 50 172 Z" fill="#2d2d44"/>
+  <path d="M60 154 Q120 148 180 154 L184 170 Q120 176 56 170 Z" fill="#3d3d5c"/>
+  <!-- Armrests -->
+  <rect x="42" y="140" width="16" height="6" rx="3" fill="#555573"/>
+  <rect x="46" y="132" width="8" height="14" rx="2" fill="#555573"/>
+  <rect x="182" y="140" width="16" height="6" rx="3" fill="#555573"/>
+  <rect x="186" y="132" width="8" height="14" rx="2" fill="#555573"/>
+  <!-- Gas cylinder -->
+  <rect x="114" y="172" width="12" height="40" rx="4" fill="#555573"/>
+  <rect x="112" y="176" width="16" height="6" rx="3" fill="#6e6e8a"/>
+  <!-- Star base -->
+  <path d="M120 212 L60 260" stroke="#555573" stroke-width="4" stroke-linecap="round"/>
+  <path d="M120 212 L180 260" stroke="#555573" stroke-width="4" stroke-linecap="round"/>
+  <path d="M120 212 L120 266" stroke="#555573" stroke-width="4" stroke-linecap="round"/>
+  <path d="M120 212 L40 244" stroke="#555573" stroke-width="4" stroke-linecap="round"/>
+  <path d="M120 212 L200 244" stroke="#555573" stroke-width="4" stroke-linecap="round"/>
+  <!-- Casters -->
+  <circle cx="60" cy="262" r="6" fill="#6e6e8a"/>
+  <circle cx="180" cy="262" r="6" fill="#6e6e8a"/>
+  <circle cx="120" cy="268" r="6" fill="#6e6e8a"/>
+  <circle cx="40" cy="246" r="6" fill="#6e6e8a"/>
+  <circle cx="200" cy="246" r="6" fill="#6e6e8a"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg width="220" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mid-Century Chair - Wooden legs with cushioned seat and back -->
+  <!-- Backrest frame -->
+  <path d="M60 30 Q110 20 160 30 L155 130 Q110 136 65 130 Z" fill="#8b6914"/>
+  <!-- Backrest cushion -->
+  <rect x="72" y="40" width="76" height="80" rx="8" fill="#c4704b"/>
+  <rect x="76" y="44" width="68" height="72" rx="6" fill="#d4835e"/>
+  <!-- Cushion stitching -->
+  <line x1="110" y1="50" x2="110" y2="110" stroke="#b5634a" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <!-- Seat -->
+  <path d="M45 134 Q110 126 175 134 L180 164 Q110 172 40 164 Z" fill="#c4704b"/>
+  <path d="M50 136 Q110 128 170 136 L174 162 Q110 170 46 162 Z" fill="#d4835e"/>
+  <!-- Seat cushion detail -->
+  <line x1="110" y1="138" x2="110" y2="166" stroke="#b5634a" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <!-- Wooden legs - splayed mid-century style -->
+  <!-- Front legs -->
+  <path d="M65 164 L40 252" stroke="#8b6914" stroke-width="6" stroke-linecap="round"/>
+  <path d="M155 164 L180 252" stroke="#8b6914" stroke-width="6" stroke-linecap="round"/>
+  <!-- Back legs -->
+  <path d="M70 134 L50 252" stroke="#8b6914" stroke-width="5" stroke-linecap="round"/>
+  <path d="M150 134 L170 252" stroke="#8b6914" stroke-width="5" stroke-linecap="round"/>
+  <!-- Leg caps -->
+  <circle cx="40" cy="254" r="4" fill="#735510"/>
+  <circle cx="180" cy="254" r="4" fill="#735510"/>
+  <circle cx="50" cy="254" r="4" fill="#735510"/>
+  <circle cx="170" cy="254" r="4" fill="#735510"/>
+</svg>

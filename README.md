@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# monis.rent — Workspace Configurator
 
-## Getting Started
+A playful, visual configurator that lets you build your dream Bali workspace and see it come to life before you rent it.
 
-First, run the development server:
+## Live Demo
+Check out the live demo [here](#). (To be updated after deployment)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Approach
+Given the 4-8 hour time constraint, I optimized for **disproportionate polish on a small surface area**. Rather than building a sprawling catalog with a complex backend, the focus is entirely on the front-end user experience: making the act of configuring a workspace feel fast, fluid, and delightful. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Visual Direction:**
+I chose a flat, illustrated layered scene over a 3D or photo-composite approach. 
+1. It yields the best delight-per-hour ratio.
+2. It sidesteps the "uncanny valley" of slightly misaligned photo shadows.
+3. It keeps the asset payload incredibly lightweight (pure SVGs) while still communicating the aesthetic vibe of the furniture.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**State Management:**
+I opted for **React Context + `useReducer`** instead of reaching for Zustand or Redux. 
+For a configurator of this scale (a handful of fields like `deskId`, `chairId`, `monitorCount`), Context avoids unnecessary dependencies and provides a clean, native way to manage global state. The state shape is small, static, and predictable. Total pricing and selected item lists are treated as derived values computed on the fly from the raw state, ensuring a single source of truth and eliminating synchronization bugs.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
+- **Next.js (App Router)** - For rapid scaffolding and optimized asset delivery
+- **React Context + `useReducer`** - For clean, dependency-free state management
+- **Tailwind CSS (v4)** - For utility-first styling with a custom warm color palette
+- **Framer Motion** - For fluid, declarative spring animations during item swaps
+- **Lucide React** - For clean, consistent UI iconography
 
-## Learn More
+## What I'd Add With More Time
+- **Drag-and-drop accessory placement:** Allowing users to freely position the lamp or plant on the desk surface.
+- **Automated test suite:** Jest/React Testing Library tests for the reducer logic and price computation functions to prevent regressions as the catalog grows.
+- **Persistence & Auth:** Saving configurations to local storage or a backend so users can share links to their specific setup (e.g., via URL query params or a shortlink) or return to them later.
+- **CMS Integration:** Moving the product catalog from a hardcoded `products.ts` file to a headless CMS if the inventory changes frequently.
 
-To learn more about Next.js, take a look at the following resources:
+## Running Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

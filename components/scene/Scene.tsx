@@ -12,10 +12,12 @@ const itemTransition = {
   mass: 0.8,
 };
 
+// We MUST include x: '-50%' here because Framer Motion will otherwise overwrite 
+// the transform: translateX(-50%) defined in the .scene-layer CSS class.
 const fadeScale = {
-  initial: { opacity: 0, scale: 0.92, y: 8 },
-  animate: { opacity: 1, scale: 1, y: 0 },
-  exit: { opacity: 0, scale: 0.95, y: -4 },
+  initial: { opacity: 0, scale: 0.92, y: 8, x: '-50%' },
+  animate: { opacity: 1, scale: 1, y: 0, x: '-50%' },
+  exit: { opacity: 0, scale: 0.95, y: -4, x: '-50%' },
 };
 
 export default function Scene() {
@@ -109,9 +111,9 @@ export default function Scene() {
               width: '22%',
               marginLeft: state.monitorCount === 2 ? '-11%' : '0',
             }}
-            initial={{ opacity: 0, y: 20, scale: 0.85 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.9 }}
+            initial={{ opacity: 0, y: 20, scale: 0.85, x: '-50%' }}
+            animate={{ opacity: 1, y: 0, scale: 1, x: '-50%' }}
+            exit={{ opacity: 0, y: 10, scale: 0.9, x: '-50%' }}
             transition={itemTransition}
           >
             <Image
@@ -137,9 +139,9 @@ export default function Scene() {
               width: '22%',
               marginLeft: '11%',
             }}
-            initial={{ opacity: 0, y: 20, scale: 0.85 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.9 }}
+            initial={{ opacity: 0, y: 20, scale: 0.85, x: '-50%' }}
+            animate={{ opacity: 1, y: 0, scale: 1, x: '-50%' }}
+            exit={{ opacity: 0, y: 10, scale: 0.9, x: '-50%' }}
             transition={{ ...itemTransition, delay: 0.05 }}
           >
             <Image
@@ -166,9 +168,9 @@ export default function Scene() {
               width: '12%',
               marginLeft: '24%',
             }}
-            initial={{ opacity: 0, scale: 0.7, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 5 }}
+            initial={{ opacity: 0, scale: 0.7, y: 10, x: '-50%' }}
+            animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
+            exit={{ opacity: 0, scale: 0.8, y: 5, x: '-50%' }}
             transition={itemTransition}
           >
             <Image
@@ -195,9 +197,9 @@ export default function Scene() {
               width: '14%',
               marginLeft: '34%',
             }}
-            initial={{ opacity: 0, scale: 0.7, y: 15 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 8 }}
+            initial={{ opacity: 0, scale: 0.7, y: 15, x: '-50%' }}
+            animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
+            exit={{ opacity: 0, scale: 0.8, y: 8, x: '-50%' }}
             transition={{ ...itemTransition, delay: 0.02 }}
           >
             <Image

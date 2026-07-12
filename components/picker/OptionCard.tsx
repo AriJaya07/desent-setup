@@ -26,14 +26,29 @@ export default function OptionCard({
       onClick={onSelect}
       type="button"
       aria-pressed={isSelected}
+      style={{
+        width: '100%',
+      }}
     >
+      {isSelected && (
+        <div style={{
+          position: 'absolute',
+          top: 8,
+          right: 8,
+          width: 8,
+          height: 8,
+          borderRadius: '50%',
+          background: 'var(--color-accent)'
+        }} />
+      )}
       <div
         style={{
-          width: 64,
-          height: 52,
+          width: '100%',
+          height: 64,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          marginBottom: 'var(--space-2)'
         }}
       >
         <Image
@@ -50,7 +65,8 @@ export default function OptionCard({
           fontWeight: 600,
           color: 'var(--color-text)',
           textAlign: 'center',
-          lineHeight: 1.3,
+          lineHeight: 1.2,
+          marginBottom: '2px'
         }}
       >
         {name}
@@ -58,7 +74,6 @@ export default function OptionCard({
       <span
         style={{
           fontSize: '0.75rem',
-          fontWeight: 500,
           color: 'var(--color-text-muted)',
         }}
       >

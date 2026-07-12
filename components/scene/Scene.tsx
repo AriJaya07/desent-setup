@@ -26,26 +26,16 @@ export default function Scene() {
 
   return (
     <div className="scene-container" id="scene-container">
-      {/* Background — subtle room context */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background:
-            'linear-gradient(180deg, #f7f5f2 0%, #f2f0ec 40%, #ece8e2 100%)',
-        }}
-      />
-
       {/* Floor line */}
       <div
         style={{
           position: 'absolute',
           bottom: '8%',
-          left: '5%',
-          right: '5%',
+          left: '0%',
+          right: '0%',
           height: '1px',
           background:
-            'linear-gradient(90deg, transparent, #d4d0c8 20%, #d4d0c8 80%, transparent)',
+            'linear-gradient(90deg, transparent, var(--color-border) 20%, var(--color-border) 80%, transparent)',
         }}
       />
 

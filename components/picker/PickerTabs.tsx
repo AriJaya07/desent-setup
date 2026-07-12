@@ -19,18 +19,22 @@ export default function PickerTabs() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-      <div className="tab-list" role="tablist">
+      <div className="segmented-control" role="tablist">
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            className="tab-trigger"
+            className="segmented-btn"
             data-active={activeTab === tab.id}
             onClick={() => setActiveTab(tab.id)}
             role="tab"
             aria-selected={activeTab === tab.id}
             type="button"
+            style={{ position: 'relative' }}
           >
-            <span style={{ display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
+            {activeTab === tab.id && (
+              <div className="segmented-highlight" style={{ left: 4, right: 4 }} />
+            )}
+            <span style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
               {tab.icon}
               {tab.label}
             </span>
@@ -38,7 +42,7 @@ export default function PickerTabs() {
         ))}
       </div>
 
-      <div role="tabpanel">
+      <div role="tabpanel" style={{ minHeight: '300px' }}>
         {activeTab === 'desks' && <DeskPicker />}
         {activeTab === 'chairs' && <ChairPicker />}
         {activeTab === 'accessories' && <AccessoryPicker />}
